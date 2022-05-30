@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth.route");
+const userRoute = require("./routes/user.route");
 
 dotenv.config();
 const port = process.env.PORT;
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // Routes
 app.use(`${routeApiCommon}/auth`, authRoute);
+app.use(`${routeApiCommon}/user`, userRoute);
 
 // lắng nghe sự kiện trên port
 app.listen(port, () => {
